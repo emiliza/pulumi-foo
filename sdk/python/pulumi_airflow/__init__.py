@@ -25,7 +25,7 @@ def _register_module():
 
 
     _module_instance = Module()
-    pulumi.runtime.register_resource_module("xyz", "index", _module_instance)
+    pulumi.runtime.register_resource_module("airflow", "index", _module_instance)
 
 
     class Package(pulumi.runtime.ResourcePackage):
@@ -35,11 +35,11 @@ def _register_module():
             return Package._version
 
         def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
-            if typ != "pulumi:providers:xyz":
+            if typ != "pulumi:providers:airflow":
                 raise Exception(f"unknown provider type {typ}")
             return Provider(name, pulumi.ResourceOptions(urn=urn))
 
 
-    pulumi.runtime.register_resource_package("xyz", Package())
+    pulumi.runtime.register_resource_package("airflow", Package())
 
 _register_module()

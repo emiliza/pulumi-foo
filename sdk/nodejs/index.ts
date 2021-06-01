@@ -22,14 +22,14 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("xyz", "index", _module)
+pulumi.runtime.registerResourceModule("airflow", "index", _module)
 
 import { Provider } from "./provider";
 
-pulumi.runtime.registerResourcePackage("xyz", {
+pulumi.runtime.registerResourcePackage("airflow", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:xyz") {
+        if (type !== "pulumi:providers:airflow") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

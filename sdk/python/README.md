@@ -1,4 +1,4 @@
-# xyz Pulumi Provider
+# Airflow Pulumi Provider
 
 This repo is a boilerplate showing how to create a native Pulumi provider.  You can search-replace `xyz` with the name of your desired provider as a starting point for creating a provider that manages resources in the target cloud.
 
@@ -30,6 +30,9 @@ make ensure
 
 # build codegen, generate and build SDKs, build the provider
 make build
+
+# add the provider binary somewhere on your PATH
+cp ./bin/pulumi-resource-xyz ~/go/bin
 
 # test
 $ cd examples/simple

@@ -12,10 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as xyz from "@pulumi/xyz";
+package main
 
-const random = new xyz.RandomString("my-random", {
-    length: 24,
-});
+import (
+	"github.com/emiliza/pulumi-foo/pkg/provider"
+	"github.com/emiliza/pulumi-foo/pkg/version"
+)
 
-export const output = random.result;
+var providerName = "airflow"
+
+func main() {
+	provider.Serve(providerName, version.Version)
+}

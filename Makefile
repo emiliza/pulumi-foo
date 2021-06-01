@@ -1,8 +1,9 @@
-PROJECT_NAME := Pulumi Xyz Resource Provider
+PROJECT_NAME := Pulumi Airflow Resource Provider
 
-PACK            := xyz
+REPO			:= foo
+PACK            := airflow
 PACKDIR         := sdk
-PROJECT         := github.com/pulumi/pulumi-${PACK}
+PROJECT         := github.com/emiliza/pulumi-${REPO}
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-sdkgen-${PACK}
 VERSION         := $(shell pulumictl get version)

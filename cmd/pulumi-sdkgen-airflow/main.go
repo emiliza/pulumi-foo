@@ -17,7 +17,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-xyz/pkg/resources"
+	"github.com/emiliza/pulumi-foo/pkg/resources"
 	"os"
 	"path"
 
@@ -34,7 +34,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Printf("Usage: pulumi-sdkgen-xyz <target-sdk-folder>\n")
+		fmt.Printf("Usage: pulumi-sdkgen-airflow <target-sdk-folder>\n")
 		return
 	}
 
@@ -49,15 +49,20 @@ func main() {
 // emitPackage emits an entire package pack into the configured output directory with the configured settings.
 func emitPackage(targetSdkFolder string) error {
 	spec := pschema.PackageSpec{
-		Name:      "xyz",
+		Name:      "airflow",
 		Resources: map[string]pschema.ResourceSpec{},
 		Language: map[string]json.RawMessage{
 			"nodejs": rawMessage(map[string]interface{}{
 				"dependencies": map[string]string{
 					"@pulumi/pulumi": "^3.0.0",
+					"@pulumi/gcp" : "^5.6.0",
 				},
 			}),
 			"python": rawMessage(map[string]interface{}{
+				"requires": map[string]string{
+					"@pulumi/pulumi": "^3.0.0",
+					"@pulumi/gcp" : "^5.6.0",
+				},
 				"usesIOClasses": true,
 			}),
 			"csharp": rawMessage(map[string]interface{}{

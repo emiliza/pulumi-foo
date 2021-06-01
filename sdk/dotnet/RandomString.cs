@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Airflow
 {
     /// <summary>
     /// A string of random characters of a given length.
     /// </summary>
-    [XyzResourceType("xyz:index:RandomString")]
+    [AirflowResourceType("xyz:index:RandomString")]
     public partial class RandomString : Pulumi.CustomResource
     {
         /// <summary>

@@ -1,10 +1,11 @@
 {
-    "name": "@pulumi/xyz",
+    "name": "@pulumi/airflow",
     "version": "${VERSION}",
     "scripts": {
         "build": "tsc"
     },
     "dependencies": {
+        "@pulumi/gcp": "^5.6.0",
         "@pulumi/pulumi": "^3.0.0"
     },
     "pulumi": {
